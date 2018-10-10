@@ -1,0 +1,179 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<!-- <h1>Dashboard</h1>
+<h4>Welcome {{session.username}}</h4>
+<h6>Weather for your city <strong>{{city}}</strong> is below:</h6> -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://www.google.com/fonts#QuickUsePlace:quickUse/Family:Droid+Sans">
+
+<div class="container container-table">
+  <div class="row vertical-center-row">
+  <div class="weather">
+    <div class="city"><h1>{{session.cityFormatted}}, {{session.country}}</h1></div>
+    <div class="clearfix"></div>
+    <div class="desc">
+    	<h2>{{session.description}}</h2>
+    </div>
+    <div class="cont">
+      <div class="icon">        
+        <img src="{{session.iconURL}}">
+  	</div>
+      <div class="temp">
+        <div class="current">
+          {{session.weatherTemp}}&deg;
+        </div>
+        <div class="high">
+          High: {{session.temp_max}}&deg;
+        </div>
+        <div class="low">
+          Low: {{session.temp_min}}&deg;
+        </div>
+      </div>
+    </div>
+  </div> <!-- weather -->
+</div>
+</div>
+
+<style type="text/css">
+	*{
+  box-sizing: border-box;
+  font-family: 'Droid Sans', sans-serif;
+}
+html,body,.wrapper{
+  height:100%;
+  width: 100%;
+
+  margin: 0 auto;
+}
+.wrapper::before{
+  content: "";
+  background: rgba(0,0,0,0.2);
+  position: absolute;
+  height:100%;
+  width: 100%;
+}
+
+.desc {
+	position: absolute;
+	margin: 30px 45px;
+	color: #FFFFFF;
+}
+
+.weather{
+  position: fixed;
+  vertical-align: middle;
+  margin-top: 10%;
+  height: 270px;
+  max-width: 500px;
+background: #7abcff; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* IE10+ */
+background: radial-gradient(ellipse at center,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  border-radius: 10px;
+  border: 3px solid #FFFFFF;
+  padding: 1% 1%;
+}
+.weather::after{
+  width: 400px;
+  height: 5px;
+  background: red;
+  top:15px;
+}
+.city h1{
+  padding: 0;
+  margin: 5px 0px;
+  text-align: center;
+  font-size: 11pt;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-weight: normal;
+}
+.icon{
+  width: 50%;
+  float: left;
+  padding: 10px;
+  color: gold;
+  margin: 10px 0;
+  position: relative;
+}
+img{
+	height: 60px;
+	margin: 45px;
+	margin-bottom: 25px;
+
+
+}
+
+.temp{
+  width: 50%;
+  float: left;
+  padding: 10px;
+  color: #FFFFFF;
+  margin: 5px 0;
+}
+.current{
+  font-size: 68pt;
+  text-align: center;
+  font-weight: lighter;
+}
+.clearfix{
+  clear:both;
+  width: 100%;
+  border-top: 3px solid #FFFFFF;
+
+}
+
+}
+.left i, .right i{
+  font-size: 38pt;
+  color: #FFFFFF;
+  position: relative;
+  top: -5px;
+}
+.date{
+  text-align: center;
+  position: relative;
+  top: -15px;
+  color: #FFFFFF;
+  font-size: 18pt;
+  
+}
+.right{
+  text-align: right;
+  
+}
+.spin {
+  animation: spin 60s linear infinite,
+    glow 10s linear infinite;
+}
+@keyframes spin{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.wind{
+  animation: wind 7.5s ease-in-out infinite;
+}
+@keyframes wind{
+  50%{
+     top: 30px;
+     right: 15px;
+  }
+}
+.glow{
+  animation: ;
+}
+@keyframes glow{
+  50%{
+     text-shadow: 0 0 5px #fff; 
+  }
+}
+</style>
+
+{% endblock %}

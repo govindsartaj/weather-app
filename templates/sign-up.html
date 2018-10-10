@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div style="margin-top: 2%;">
+	<h2 style="text-align: center;">Register</h2>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="" style = "margin-left: 36%; margin-right: 36%; padding: 3px;">
+		<div class="form-group">
+			{{render_field(form.name, class_="form-control")}}
+		</div>
+		<div class="form-group">
+			{{render_field(form.email, class_="form-control")}}
+		</div>
+		<div class="form-group">
+			{{render_field(form.username, class_="form-control")}}
+		</div>
+		<div class="form-group">
+			{{render_field(form.password, class_="form-control")}}
+		</div>
+		<div class="form-group">
+			{{render_field(form.confirm, class_="form-control")}}
+		</div>
+		<p><input type="Submit" value="Submit" class="btn btn-primary"></p>
+	</form>
+</div>
+{% endblock %}
